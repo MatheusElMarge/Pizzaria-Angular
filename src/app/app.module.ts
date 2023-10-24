@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    FormsModule,
     LoginComponent,
     PedidoslistComponent,
     PedidosdetailsComponent,
@@ -23,11 +22,13 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     IndexComponent
-    
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
