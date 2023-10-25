@@ -1,0 +1,12 @@
+<form (ngSubmit)="salvar()">
+    <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Nome:</label>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+            [(ngModel)]="funcionario.nome">
+    </div>
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+  
+    </div>
+  </form>
+  

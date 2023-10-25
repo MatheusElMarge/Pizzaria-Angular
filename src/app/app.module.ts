@@ -18,6 +18,8 @@ import { ItenslistComponent } from './components/itens/itenslist/itenslist.compo
 import { ItensdetailsComponent } from './components/itens/itensdetails/itensdetails.component';
 import { SaboresdetailsComponent } from './components/sabores/saboresdetails/saboresdetails.component';
 import { SaboreslistComponent } from './components/sabores/saboreslist/saboreslist.component';
+import { FuncionarioslistComponent } from './components/funcionarios/funcionarioslist/funcionarioslist.component';
+import { FuncionariosdetailsComponent } from './components/funcionarios/funcionariosdetails/funcionariosdetails.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { SaboreslistComponent } from './components/sabores/saboreslist/saboresli
     ItenslistComponent,
     ItensdetailsComponent,
     SaboresdetailsComponent,
-    SaboreslistComponent
+    SaboreslistComponent,
+    FuncionarioslistComponent,
+    FuncionariosdetailsComponent
   ],
   imports: [
     BrowserModule,

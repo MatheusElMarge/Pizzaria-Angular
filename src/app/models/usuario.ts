@@ -1,6 +1,8 @@
 export class Usuario {
-
-    login!: string;
+    id!: number;
+    email!: string;
+    nome!: string;
     senha!: string;
+    cargo!: string;
 
 }
