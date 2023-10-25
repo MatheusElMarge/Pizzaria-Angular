@@ -16,6 +16,8 @@ import { ProdutoslistComponent } from './components/produtos/produtoslist/produt
 import { ProdutosdetailsComponent } from './components/produtos/produtosdetails/produtosdetails.component';
 import { ItenslistComponent } from './components/itens/itenslist/itenslist.component';
 import { ItensdetailsComponent } from './components/itens/itensdetails/itensdetails.component';
+import { SaboresdetailsComponent } from './components/sabores/saboresdetails/saboresdetails.component';
+import { SaboreslistComponent } from './components/sabores/saboreslist/saboreslist.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { ItensdetailsComponent } from './components/itens/itensdetails/itensdeta
     ProdutosdetailsComponent,
     ItenslistComponent,
     ItensdetailsComponent,
+    SaboresdetailsComponent,
+    SaboreslistComponent
   ],
   imports: [
     BrowserModule,
