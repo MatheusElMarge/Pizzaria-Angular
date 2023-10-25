@@ -19,9 +19,12 @@ export class SaboresService {
   }
 
   save(sabor: Sabor): Observable<Sabor> {
-    if (sabor.id !== null){
+    if (sabor.id !== undefined){
+      console.log(sabor.id + '  edit');
       return this.http.put<Sabor>(this.API, sabor);
     }
+    console.log('save');
+
     return this.http.post<Sabor>(this.API, sabor);
   }
 
