@@ -1,7 +1,12 @@
-import { Produto } from "./produto";
+import { Item } from "./item";
+import { Usuario } from "./usuario";
 
 export class Pedido {
     id!: number;
+    cliente!: Usuario;
+    funcionario!: Usuario;
     obs!: string;
-    produtos!: Produto[];
+    itens!: Item[];
+    delivery!: boolean;
+    estado!: string;
 }

@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pedido } from '../models/pedido';
+import { Item } from '../models/item';
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +23,14 @@ export class PedidosService {
     return this.http.post<Pedido>(this.API, pedido);
   }
 
+  // itens(pedido: Pedido): Observable<Item[]> {
+  //   return this.http.get<Item[]>(this.API);
+  // }
+
+
   exemploErro(): Observable<Pedido[]> {
     return this.http.get<Pedido[]>(this.API + '/erro');
   }
-
-
-
 
 
 }

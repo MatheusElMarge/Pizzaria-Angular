@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Item } from 'src/app/models/item';
 import { Pedido } from 'src/app/models/pedido';
 import { Produto } from 'src/app/models/produto';
 import { PedidosService } from 'src/app/services/pedidos.service';
@@ -11,8 +12,11 @@ import { PedidosService } from 'src/app/services/pedidos.service';
 })
 export class PedidosdetailsComponent {
 
+  lista: Item[] = [];
+
   @Input() pedido: Pedido = new Pedido();
   @Output() retorno = new EventEmitter<Pedido>();
+  @Output() retornoItens = new EventEmitter<Item[]>();
 
   modalService = inject(NgbModal);
   modalRef!: NgbModalRef;
@@ -21,6 +25,7 @@ export class PedidosdetailsComponent {
 
 
   constructor() {
+    console.log(this.pedido.obs);
 
   }
 
@@ -37,29 +42,6 @@ export class PedidosdetailsComponent {
       }
     });
 
-
-
-  }
-
-
-  excluir(produto: Produto, indice: number) {
-
-    this.pedido.produtos.splice(indice,1);
-    
-  }
-
-  retornoProdutosList(produto: Produto) {
-
-    if (this.pedido.produtos == null)
-      this.pedido.produtos = [];
-
-    this.pedido.produtos.push(produto);
-    this.modalRef.dismiss();
-}
-
-
-  lancar(modal: any) {
-    this.modalRef = this.modalService.open(modal, { size: 'lg' });
   }
 
 }

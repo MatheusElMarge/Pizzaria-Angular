@@ -6,6 +6,7 @@ import { ProdutoslistComponent } from './components/produtos/produtoslist/produt
 import { PedidoslistComponent } from './components/pedidos/pedidoslist/pedidoslist.component';
 import { ItenslistComponent } from './components/itens/itenslist/itenslist.component';
 import { SaboreslistComponent } from './components/sabores/saboreslist/saboreslist.component';
+import { PedidosdetailsComponent } from './components/pedidos/pedidosdetails/pedidosdetails.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
     path: "admin", component: IndexComponent, children: [
       { path: "produtos", component: ProdutoslistComponent },
       { path: "pedidos", component: PedidoslistComponent },
+      { path: "pedidos-details", component: PedidosdetailsComponent },
       { path: "itens", component: ItenslistComponent },
       { path: "sabores", component: SaboreslistComponent },
     ]

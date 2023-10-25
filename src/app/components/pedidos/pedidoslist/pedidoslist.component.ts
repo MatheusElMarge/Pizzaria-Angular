@@ -12,8 +12,9 @@ import { PedidosService } from 'src/app/services/pedidos.service';
 export class PedidoslistComponent {
 
   lista: Pedido[] = [];
+  msg: String = "Novo pedido";
 
-
+  @Output() retorno = new EventEmitter<Pedido>();
   objetoSelecionadoParaEdicao: Pedido = new Pedido();
   indiceSelecionadoParaEdicao!: number;
 
@@ -57,42 +58,30 @@ export class PedidoslistComponent {
 
   }
 
+    // MÉTODOS DA MODAL
 
+    adicionar(modal: any) {
+      this.objetoSelecionadoParaEdicao = new Pedido();
+      this.indiceSelecionadoParaEdicao = -1;
 
+      this.modalRef = this.modalService.open(modal, { size: 'lg' });
+    }
 
+    editar(modal: any, pedido: Pedido, indice: number) {
+      this.objetoSelecionadoParaEdicao = Object.assign({}, pedido); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
+      this.indiceSelecionadoParaEdicao = indice;
 
+      this.modalRef = this.modalService.open(modal, { size: 'lg' });
+    }
 
-  // MÉTODOS DA MODAL
+    addOuEditar(pedido: Pedido) {
 
-  adicionar(modal: any) {
-    this.objetoSelecionadoParaEdicao = new Pedido();
-    this.indiceSelecionadoParaEdicao = -1;
+      this.listAll();
 
-    this.modalRef = this.modalService.open(modal, { size: 'md' });
-  }
+      this.modalService.dismissAll();
+    }
 
-  editar(modal: any, pedido: Pedido, indice: number) {
-    this.objetoSelecionadoParaEdicao = Object.assign({}, pedido); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
-    this.indiceSelecionadoParaEdicao = indice;
-
-    this.modalRef = this.modalService.open(modal, { size: 'md' });
-  }
-
-  addOuEditar(pedido: Pedido) {
-
-    this.listAll();
-
-    this.modalService.dismissAll();
-
-  }
-
-  delete(pedido: Pedido) {
-
-    this.listAll();
-
-    this.modalService.dismissAll();
-
-  }
-
-
+    lancamento(pedido: Pedido){
+      this.retorno.emit(pedido);
+    }
 }
