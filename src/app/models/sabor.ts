@@ -1,6 +1,7 @@
 export class Sabor {
 
-    nome!: string;
-    item!: string;
+  id!: number;
+  nome!: string;
+  // item!: string;
 
 }

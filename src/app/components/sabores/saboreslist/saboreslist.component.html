@@ -1,1 +1,38 @@
-<p>saboreslist works!</p>
+<div class="container mt-3">
+  <h3 class="alert alert-primary">Listagem de sabores!</h3>
+ <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>
+  <div class="row">
+      <div class="col-lg-12">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th scope="col">#ID</th>
+                      <th scope="col">Obs</th>
+                      <th scope="col">Ações</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let sabor of lista; let i = index">
+                      <th scope="row">{{ sabor.id }}</th>
+                      <td> {{ sabor.nome }} </td>
+                      <td> <button type="button" class="btn btn-primary" (click)="editar(modal1, sabor, i)">Editar</button> </td>
+                  </tr>
+              </tbody>
+          </table>
+
+
+      </div>
+  </div>
+</div>
+
+<ng-template #modal1 let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title">Novo sabor</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+
+      <app-saboresdetails [sabor]="objetoSelecionadoParaEdicao" (retorno)="addOuEditar($event)" ></app-saboresdetails>
+
+  </div>
+</ng-template>
