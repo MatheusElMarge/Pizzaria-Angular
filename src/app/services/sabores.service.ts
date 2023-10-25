@@ -28,6 +28,10 @@ export class SaboresService {
     return this.http.post<Sabor>(this.API, sabor);
   }
 
+  delete(sabor: Sabor): Observable<String> {
+    return this.http.delete(this.API + "/" + sabor.id, { responseType: 'text' });
+  }
+
   exemploErro(): Observable<Sabor[]> {
     return this.http.get<Sabor[]>(this.API + '/erro');
   }

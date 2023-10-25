@@ -47,6 +47,23 @@ export class SaboreslistComponent {
 
   }
 
+  delete(sabor: Sabor) {
+
+     this.saborservice.delete(sabor).subscribe({
+      next: produto => { // QUANDO DÁ CERTO
+        console.log(this.retorno);
+        this.listAll();
+      },
+      error: erro => { // QUANDO DÁ ERRO
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+
+
+
+  }
+
   exemploErro() {
 
     this.saborservice.exemploErro().subscribe({
@@ -83,6 +100,7 @@ export class SaboreslistComponent {
 
       this.modalService.dismissAll();
     }
+
 
 
     lancamento(sabor: Sabor){

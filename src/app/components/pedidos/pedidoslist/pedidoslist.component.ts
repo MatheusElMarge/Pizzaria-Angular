@@ -78,7 +78,7 @@ export class PedidoslistComponent {
     this.modalRef = this.modalService.open(modal, { size: 'md' });
   }
 
-  addOuEditarPedido(pedido: Pedido) {
+  addOuEditar(pedido: Pedido) {
 
     this.listAll();
 
@@ -86,9 +86,13 @@ export class PedidoslistComponent {
 
   }
 
+  delete(pedido: Pedido) {
 
+    this.listAll();
 
+    this.modalService.dismissAll();
 
+  }
 
 
 }

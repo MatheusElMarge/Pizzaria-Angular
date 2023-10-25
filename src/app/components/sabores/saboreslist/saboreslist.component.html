@@ -24,7 +24,7 @@
             <td> {{ sabor.nome }} </td>
             <td>
               <button type="button" class="btn btn-outline-warning me-4" (click)="editar(modal1, sabor, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil-fill"></i></button>
-              <button type="button" class="btn btn-outline-danger" (click)="editar(modal1, sabor, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-trash-fill"></i></button>
+              <button type="button" class="btn btn-outline-danger" (click)="delete(sabor)" data-toggle="tooltip" title="Editar"><i class="bi bi-trash-fill"></i></button>
             </td>
           </tr>
         </tbody>

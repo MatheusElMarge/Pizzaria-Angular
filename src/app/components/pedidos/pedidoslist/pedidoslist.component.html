@@ -1,45 +1,49 @@
-<div class="container">
-    <h3 class="alert alert-primary">Listagem de pedidos!</h3>
-   <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button> 
-    <div class="row">
-        <div class="col-lg-12">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#ID</th>
-                        <th scope="col">Obs</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let pedido of lista; let i = index">
-                        <th scope="row">{{ pedido.id }}</th>
-                        <td> {{ pedido.obs }} </td>
-                        <td> <button type="button" class="btn btn-primary" (click)="editar(modal1, pedido, i)">Editar</button> </td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="container mt-4">
+  <div class="row justify-content-between">
 
-
-        </div>
+    <div class="col-6">
+      <span class="fs-2 fw-medium">Listagem de pedidos!</span>
     </div>
+    <div class="col-2 align-self-center">
+      <button type="button" class="btn btn-outline-primary btn-lg fw-medium" (click)="adicionar(modal1)">Novo</button>
+
+    </div>
+
+    <div class="col-lg-12 mt-3">
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Sabor</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of lista; let i = index">
+            <th scope="row">{{ pedido.id }}</th>
+            <td> {{ pedido.id }} </td>
+            <td>
+              <button type="button" class="btn btn-outline-warning me-4" (click)="editar(modal1, pedido, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil-fill"></i></button>
+              <button type="button" class="btn btn-outline-danger" (click)="editar(modal1, pedido, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
 </div>
 
-
-
-
-
 <ng-template #modal1 let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title">Modal title</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-       
-        <app-pedidosdetails [pedido]="objetoSelecionadoParaEdicao" (retorno)="addOuEditarPedido($event)" ></app-pedidosdetails>
-        
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-    </div>
+  <div class="modal-header">
+    <h4 class="modal-title">Novo sabor</h4>
+    <button type="button" class="btn-close" aria-label="Close"
+      (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+
+    <app-pedidosdetails [pedido]="objetoSelecionadoParaEdicao"
+      (retorno)="addOuEditar($event)"></app-pedidosdetails>
+
+  </div>
 </ng-template>
