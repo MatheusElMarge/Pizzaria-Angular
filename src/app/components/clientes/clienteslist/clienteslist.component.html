@@ -1,14 +1,14 @@
 <div class="container mt-4">
     <div class="row justify-content-between">
-  
+
       <div class="col-6">
         <span class="fs-2 fw-medium">Listagem de Clientes</span>
       </div>
       <div class="col-2 align-self-center">
         <button type="button" class="btn btn-outline-primary btn-lg fw-medium" (click)="adicionar(modal1)">Novo</button>
-  
+
       </div>
-  
+
       <div class="col-lg-12 mt-3">
         <table class="table table-striped">
           <thead class="table-dark">
@@ -17,7 +17,7 @@
               <th scope="col">Nome</th>
               <th scope="col">Email</th>
               <th scope="col">Endereco</th>
-              <th scope="col">Acões</th>
+              <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -26,7 +26,7 @@
               <td> {{ cliente.nome }} </td>
               <td> {{ cliente.email }} </td>
               <td> {{ cliente.enderecos[0].rua }} </td>
-              
+
               <td>
                 <button type="button" class="btn btn-outline-warning me-4" (click)="editar(modal1, cliente, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil-fill"></i></button>
                 <button type="button" class="btn btn-outline-danger" (click)="delete(cliente)" data-toggle="tooltip" title="Editar"><i class="bi bi-trash-fill"></i></button>
@@ -34,11 +34,11 @@
             </tr>
           </tbody>
         </table>
-  
+
       </div>
     </div>
   </div>
-  
+
   <ng-template #modal1 let-modal>
     <div class="modal-header">
       <h4 class="modal-title">Novo Cliente</h4>
@@ -46,10 +46,10 @@
         (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-  
+
       <app-clientesdetails [cliente]="objetoSelecionadoParaEdicao"
         (retorno)="addOuEditar($event)"></app-clientesdetails>
-  
+
     </div>
   </ng-template>
-  
+
