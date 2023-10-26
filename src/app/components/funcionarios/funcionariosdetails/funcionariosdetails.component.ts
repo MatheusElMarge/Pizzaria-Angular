@@ -20,7 +20,7 @@ export class FuncionariosdetailsComponent {
 
   salvar() {
     //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
-
+    this.funcionario.cargo = "FUNCIONARIO";
     this.funcionarioService.save(this.funcionario).subscribe({
       next: produto => { // QUANDO DÁ CERTO
         this.retorno.emit(produto);

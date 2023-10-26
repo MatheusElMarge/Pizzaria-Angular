@@ -20,6 +20,8 @@ import { SaboresdetailsComponent } from './components/sabores/saboresdetails/sab
 import { SaboreslistComponent } from './components/sabores/saboreslist/saboreslist.component';
 import { FuncionarioslistComponent } from './components/funcionarios/funcionarioslist/funcionarioslist.component';
 import { FuncionariosdetailsComponent } from './components/funcionarios/funcionariosdetails/funcionariosdetails.component';
+import { ClientesdetailsComponent } from './components/clientes/clientesdetails/clientesdetails.component';
+import { ClienteslistComponent } from './components/clientes/clienteslist/clienteslist.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { FuncionariosdetailsComponent } from './components/funcionarios/funciona
     SaboresdetailsComponent,
     SaboreslistComponent,
     FuncionarioslistComponent,
-    FuncionariosdetailsComponent
+    FuncionariosdetailsComponent,
+    ClientesdetailsComponent,
+    ClienteslistComponent
   ],
   imports: [
     BrowserModule,

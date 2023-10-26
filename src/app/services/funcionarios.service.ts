@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Usuario } from '../models/usuario';
 
 @Injectable({
@@ -8,14 +8,16 @@ import { Usuario } from '../models/usuario';
 })
 export class FuncionariosService {
 
-  API: string = 'http://localhost:8080/api/sabor';
+  API: string = 'http://localhost:8080/api/user';
   http = inject(HttpClient);
 
   constructor() { }
 
 
   listAll(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.API);
+    return this.http.get<Usuario[]>(this.API).pipe(
+      map((usuario: Usuario[]) => usuario.filter(usuario => usuario.cargo == "FUNCIONARIO"))
+    );
   }
 
   save(funcionario: Usuario): Observable<Usuario> {

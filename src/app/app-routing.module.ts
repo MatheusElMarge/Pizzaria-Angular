@@ -8,6 +8,7 @@ import { ItenslistComponent } from './components/itens/itenslist/itenslist.compo
 import { SaboreslistComponent } from './components/sabores/saboreslist/saboreslist.component';
 import { PedidosdetailsComponent } from './components/pedidos/pedidosdetails/pedidosdetails.component';
 import { FuncionarioslistComponent } from './components/funcionarios/funcionarioslist/funcionarioslist.component';
+import { ClienteslistComponent } from './components/clientes/clienteslist/clienteslist.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: "itens", component: ItenslistComponent },
       { path: "sabores", component: SaboreslistComponent },
       { path: "funcionarios", component: FuncionarioslistComponent},
+      { path: "clientes", component: ClienteslistComponent},
     ]
   }
 

@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/models/usuario';
-import { FuncionariosService } from 'src/app/services/funcionarios.service';
-@Component({
-  selector: 'app-funcionarioslist',
-  templateUrl: './funcionarioslist.component.html',
-  styleUrls: ['./funcionarioslist.component.scss']
-})
-export class FuncionarioslistComponent {
+import { ClientesService } from 'src/app/services/clientes.service';
 
+@Component({
+  selector: 'app-clienteslist',
+  templateUrl: './clienteslist.component.html',
+  styleUrls: ['./clienteslist.component.scss']
+})
+export class ClienteslistComponent {
   lista: Usuario[] = [];
 
   @Output() retorno = new EventEmitter<Usuario>();
@@ -21,7 +21,7 @@ export class FuncionarioslistComponent {
   modalService = inject(NgbModal);
   modalRef!: NgbModalRef;
 
-  funcionarioService = inject(FuncionariosService);
+  clienteService = inject(ClientesService);
 
   constructor() {
 
@@ -33,10 +33,12 @@ export class FuncionarioslistComponent {
 
   listAll() {
 
-    this.funcionarioService.listAll().subscribe({
+    this.clienteService.listAll().subscribe({
+
+      
       next: lista => { // QUANDO DÁ CERTO
         this.lista = lista;
-
+  console.log(lista)
       },
       error: erro => { // QUANDO DÁ ERRO
         alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
@@ -46,10 +48,10 @@ export class FuncionarioslistComponent {
 
   }
 
-  delete(funcionario: Usuario) {
+  delete(cliente: Usuario) {
 
-     this.funcionarioService.delete(funcionario).subscribe({
-      next: funcionario => { // QUANDO DÁ CERTO
+     this.clienteService.delete(cliente).subscribe({
+      next: cliente => { // QUANDO DÁ CERTO
         console.log(this.retorno);
         this.listAll();
       },
@@ -65,7 +67,7 @@ export class FuncionarioslistComponent {
 
   exemploErro() {
 
-    this.funcionarioService.exemploErro().subscribe({
+    this.clienteService.exemploErro().subscribe({
       next: lista => { // QUANDO DÁ CERTO
         this.lista = lista;
       },
@@ -86,15 +88,14 @@ export class FuncionarioslistComponent {
       this.modalRef = this.modalService.open(modal, { size: 'md' });
     }
 
-    editar(modal: any, funcionario: Usuario, indice: number) {
-      funcionario.senha = "";
-      this.objetoSelecionadoParaEdicao = Object.assign({}, funcionario); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
+    editar(modal: any, cliente: Usuario, indice: number) {
+      this.objetoSelecionadoParaEdicao = Object.assign({}, cliente); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
       this.indiceSelecionadoParaEdicao = indice;
 
       this.modalRef = this.modalService.open(modal, { size: 'md' });
     }
 
-    addOuEditar(funcionario: Usuario) {
+    addOuEditar(cliente: Usuario) {
 
       this.listAll();
 
@@ -103,9 +104,10 @@ export class FuncionarioslistComponent {
 
 
 
-    lancamento(funcionario: Usuario){
-      this.retorno.emit(funcionario);
+    lancamento(cliente: Usuario){
+      this.retorno.emit(cliente);
     }
 
 
 }
+

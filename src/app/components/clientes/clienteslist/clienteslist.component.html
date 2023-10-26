@@ -2,7 +2,7 @@
     <div class="row justify-content-between">
   
       <div class="col-6">
-        <span class="fs-2 fw-medium">Listagem de funcionarios</span>
+        <span class="fs-2 fw-medium">Listagem de Clientes</span>
       </div>
       <div class="col-2 align-self-center">
         <button type="button" class="btn btn-outline-primary btn-lg fw-medium" (click)="adicionar(modal1)">Novo</button>
@@ -16,18 +16,20 @@
               <th scope="col">#ID</th>
               <th scope="col">Nome</th>
               <th scope="col">Email</th>
-              <th scope="col">CACOES</th>
+              <th scope="col">Endereco</th>
+              <th scope="col">Acões</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let funcionario of lista; let i = index">
-              <th scope="row">{{ funcionario.id }}</th>
-              <td> {{ funcionario.nome }} </td>
-              <td> {{ funcionario.email }} </td>
-
+            <tr *ngFor="let cliente of lista; let i = index">
+              <th scope="row">{{ cliente.id }}</th>
+              <td> {{ cliente.nome }} </td>
+              <td> {{ cliente.email }} </td>
+              <td> {{ cliente.enderecos[0].rua }} </td>
+              
               <td>
-                <button type="button" class="btn btn-outline-warning me-4" (click)="editar(modal1, funcionario, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil-fill"></i></button>
-                <button type="button" class="btn btn-outline-danger" (click)="delete(funcionario)" data-toggle="tooltip" title="Editar"><i class="bi bi-trash-fill"></i></button>
+                <button type="button" class="btn btn-outline-warning me-4" (click)="editar(modal1, cliente, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil-fill"></i></button>
+                <button type="button" class="btn btn-outline-danger" (click)="delete(cliente)" data-toggle="tooltip" title="Editar"><i class="bi bi-trash-fill"></i></button>
               </td>
             </tr>
           </tbody>
@@ -39,14 +41,14 @@
   
   <ng-template #modal1 let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Novo funcionario</h4>
+      <h4 class="modal-title">Novo Cliente</h4>
       <button type="button" class="btn-close" aria-label="Close"
         (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
   
-      <app-funcionariosdetails [funcionario]="objetoSelecionadoParaEdicao"
-        (retorno)="addOuEditar($event)"></app-funcionariosdetails>
+      <app-clientesdetails [cliente]="objetoSelecionadoParaEdicao"
+        (retorno)="addOuEditar($event)"></app-clientesdetails>
   
     </div>
   </ng-template>
