@@ -4,6 +4,6 @@ export class Sabor {
 
   id!: number;
   nome!: string;
-  item: Item[] = [];
+  itens: Item[] = [];
 
 }

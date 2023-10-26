@@ -17,23 +17,22 @@ export class ItensdetailsComponent {
   saborservice = inject(SaboresService);
   @Output() retorno = new EventEmitter<Item>();
 
-  constructor (){
+  constructor() {
     this.getSabores();
   }
 
-  getSabores(){
+  getSabores() {
 
-      this.saborservice.listAll().subscribe({
-        next: lista => { // QUANDO DÁ CERTO
-          this.sabores = lista;
-          console.log(this.sabores);
+    this.saborservice.listAll().subscribe({
+      next: lista => { // QUANDO DÁ CERTO
+        this.sabores = lista;
 
-        },
-        error: erro => { // QUANDO DÁ ERRO
-          alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-          console.error(erro);
-        }
-      });
+      },
+      error: erro => { // QUANDO DÁ ERRO
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
 
   }
 

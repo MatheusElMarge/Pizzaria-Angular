@@ -3,8 +3,13 @@
   <form class="row g-3">
     <div class="col-md-12">
       <label for="obs" class="form-label">Observação</label>
-      <textarea class="form-control" id="obs" [(ngModel)]="pedido.obs"
+      <textarea class="form-control" id="obs" [(ngModel)]="pedido.observacao"
         name="obs"></textarea>
+    </div>
+    <div class="col-md-12">
+      <label for="obs" class="form-label me-2">Delivery</label>
+      <input class="form-check-input" type="checkbox" value="true" id="delivery"
+        name="entrega" [(ngModel)]="pedido.entrega">
     </div>
     <div class="col-lg-12 mt-3">
       <div class="row mb-2">
@@ -34,15 +39,15 @@
             <td> {{ item.sabores.join(', ') }} </td>
             <td>
               <a class="btn btn-outline-danger " data-toggle="tooltip"
-              (click)="deleteItem(i)"
-              title="Excluir"><i class="bi bi-trash-fill"></i></a>
+                (click)="deleteItem(i)"
+                title="Excluir"><i class="bi bi-trash-fill"></i></a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="col-2">
-      <button type="submit" class="btn btn-primary btn">Salvar</button>
+      <button type="submit" class="btn btn-primary btn" (click)="salvar()">Salvar</button>
     </div>
 
   </form>

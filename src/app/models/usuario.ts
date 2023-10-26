@@ -5,7 +5,7 @@ export class Usuario {
     email!: string;
     nome!: string;
     senha!: string;
-    cargo!: string;
+    role!: string;
     enderecos: Endereco[]= [] ;
 
 }

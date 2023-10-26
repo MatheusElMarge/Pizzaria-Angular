@@ -1,0 +1,16 @@
+
+<div class="container mt-1">
+  <form class="row g-3">
+    <div class="col-md-12">
+      <input type="text" name="bairro" id="bairro" [(ngModel)]="endereco.rua">
+    </div>
+    <div class="col-md-12">
+      <input type="text" name="bairro" id="bairro" [(ngModel)]="endereco.num_casa">
+
+    </div>
+
+    <div class="col-2">
+      <button type="submit" class="btn btn-primary btn" (click)="salvar()">Salvar</button>
+    </div>
+  </form>
+</div>

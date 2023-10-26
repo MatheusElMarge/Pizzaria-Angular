@@ -8,30 +8,30 @@ import { ClientesService } from 'src/app/services/clientes.service';
   styleUrls: ['./clientesdetails.component.scss']
 })
 export class ClientesdetailsComponent {
-    @Input() cliente: Usuario = new Usuario();
-    @Output() retorno = new EventEmitter<Usuario>();
-  
-   clienteService = inject(ClientesService);
-  
-  
-    constructor() {
-  
-    }
-  
-    salvar() {
-      //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
-      this.cliente.cargo = "CLIENTE";
-      this.clienteService.save(this.cliente).subscribe({
-        next: produto => { // QUANDO DÁ CERTO
-          this.retorno.emit(produto);
-        },
-        error: erro => { // QUANDO DÁ ERRO
-          alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-          console.error(erro);
-        }
-      });
-  
-  
-  
-    }
+  @Input() cliente: Usuario = new Usuario();
+  @Output() retorno = new EventEmitter<Usuario>();
+
+  clienteService = inject(ClientesService);
+
+
+  constructor() {
+
+  }
+
+  salvar() {
+    //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
+    this.cliente.role = "CLIENTE";
+    this.clienteService.save(this.cliente).subscribe({
+      next: produto => { // QUANDO DÁ CERTO
+        this.retorno.emit(produto);
+      },
+      error: erro => { // QUANDO DÁ ERRO
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+
+
+
+  }
 }

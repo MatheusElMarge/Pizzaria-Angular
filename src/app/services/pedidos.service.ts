@@ -16,10 +16,12 @@ export class PedidosService {
 
 
   listAll(): Observable<Pedido[]> {
+    console.log(this.http.get<Pedido[]>(this.API));
     return this.http.get<Pedido[]>(this.API);
   }
 
   save(pedido: Pedido): Observable<Pedido> {
+    console.log(pedido);
     return this.http.post<Pedido>(this.API, pedido);
   }
 

@@ -15,15 +15,15 @@ export class ClientesService {
 
   listAll(): Observable<Usuario[]> {
     console.log(this.http.get<Usuario[]>(this.API));
-    
-    
+
+
     return this.http.get<Usuario[]>(this.API).pipe(
-      map((usuario: Usuario[]) => usuario.filter(usuario => usuario.cargo == "CLIENTE"))
+      map((usuario: Usuario[]) => usuario.filter(usuario => usuario.role == "CLIENTE"))
     );
   }
 
   save(cliente: Usuario): Observable<Usuario> {
-    if (cliente.id !== undefined){
+    if (cliente.id !== undefined) {
       console.log(cliente.id + '  edit');
       return this.http.put<Usuario>(this.API, cliente);
     }

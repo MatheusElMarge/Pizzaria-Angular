@@ -22,6 +22,7 @@ import { FuncionarioslistComponent } from './components/funcionarios/funcionario
 import { FuncionariosdetailsComponent } from './components/funcionarios/funcionariosdetails/funcionariosdetails.component';
 import { ClientesdetailsComponent } from './components/clientes/clientesdetails/clientesdetails.component';
 import { ClienteslistComponent } from './components/clientes/clienteslist/clienteslist.component';
+import { EnderecosdetailsComponent } from './components/enderecos/enderecosdetails/enderecosdetails.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ClienteslistComponent } from './components/clientes/clienteslist/client
     FuncionarioslistComponent,
     FuncionariosdetailsComponent,
     ClientesdetailsComponent,
-    ClienteslistComponent
+    ClienteslistComponent,
+    EnderecosdetailsComponent
   ],
   imports: [
     BrowserModule,

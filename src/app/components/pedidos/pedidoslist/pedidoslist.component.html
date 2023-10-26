@@ -14,7 +14,7 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">#ID</th>
-            <th scope="col">Estado</th>
+            <th scope="col">Observação</th>
             <th scope="col">Delivery</th>
             <th scope="col">Ações</th>
           </tr>
@@ -22,8 +22,8 @@
         <tbody>
           <tr *ngFor="let pedido of lista; let i = index">
             <th scope="row">{{ pedido.id }}</th>
-            <td>{{ pedido.estado }}</td>
-            <td> {{ pedido.delivery ? "Sim" : "Não" }} </td>
+            <td>{{ pedido.observacao }}</td>
+            <td> {{ pedido.entrega ? "Sim" : "Não" }} </td>
             <td>
               <a class="btn btn-outline-info me-4" (click)="editar(modal1, pedido, i)" data-toggle="tooltip" title="Visualizar"><i class="bi bi-eye-fill"></i></a>
               <a class="btn btn-outline-danger" data-toggle="tooltip" title="Deletar"><i class="bi bi-trash-fill"></i></a>

@@ -16,12 +16,12 @@ export class FuncionariosService {
 
   listAll(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.API).pipe(
-      map((usuario: Usuario[]) => usuario.filter(usuario => usuario.cargo == "FUNCIONARIO"))
+      map((usuario: Usuario[]) => usuario.filter(usuario => usuario.role == "FUNCIONARIO"))
     );
   }
 
   save(funcionario: Usuario): Observable<Usuario> {
-    if (funcionario.id !== undefined){
+    if (funcionario.id !== undefined) {
       console.log(funcionario.id + '  edit');
       return this.http.put<Usuario>(this.API, funcionario);
     }

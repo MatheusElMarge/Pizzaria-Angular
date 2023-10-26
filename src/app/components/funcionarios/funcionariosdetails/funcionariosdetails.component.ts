@@ -11,7 +11,7 @@ export class FuncionariosdetailsComponent {
   @Input() funcionario: Usuario = new Usuario();
   @Output() retorno = new EventEmitter<Usuario>();
 
- funcionarioService = inject(FuncionariosService);
+  funcionarioService = inject(FuncionariosService);
 
 
   constructor() {
@@ -20,7 +20,7 @@ export class FuncionariosdetailsComponent {
 
   salvar() {
     //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
-    this.funcionario.cargo = "FUNCIONARIO";
+    this.funcionario.role = "FUNCIONARIO";
     this.funcionarioService.save(this.funcionario).subscribe({
       next: produto => { // QUANDO DÁ CERTO
         this.retorno.emit(produto);

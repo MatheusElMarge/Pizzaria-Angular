@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Item } from 'src/app/models/item';
 import { Pedido } from 'src/app/models/pedido';
+import { Sabor } from 'src/app/models/sabor';
 import { PedidosService } from 'src/app/services/pedidos.service';
 
 @Component({
@@ -24,11 +25,10 @@ export class PedidosdetailsComponent {
 
 
   constructor() {
-
+    // console.log(this.pedido.itens);
   }
 
   salvar() {
-    //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
 
     this.pedidosService.save(this.pedido).subscribe({
       next: pedido => { // QUANDO DÁ CERTO
@@ -42,11 +42,11 @@ export class PedidosdetailsComponent {
 
   }
 
-  pickItem(modal: any){
+  pickItem(modal: any) {
     this.modalRef = this.modalService.open(modal, { size: 'md' });
   }
 
-  deleteItem(index: number){
+  deleteItem(index: number) {
     this.pedido.itens.splice(index, 1);
   }
 
