@@ -3,15 +3,23 @@
   <form class="row g-3">
     <div class="col-md-12">
       <label for="obs" class="form-label">Observação</label>
-      <textarea class="form-control" id="obs" [(ngModel)]="pedido.obs" name="obs"></textarea>
+      <textarea class="form-control" id="obs" [(ngModel)]="pedido.obs"
+        name="obs"></textarea>
     </div>
     <div class="col-lg-12 mt-3">
-      <div class="row">
-        <span class="fs-5 fw-medium mb-2">
-          Itens do pedido
-        </span>
-      </div>
+      <div class="row mb-2">
+        <div class="col align-items-center">
+          <span class="fs-5 fw-medium mb-2">
+            Itens do pedido
+          </span>
+        </div>
 
+        <div class="col text-end">
+          <a class="btn btn-outline-primary " data-toggle="tooltip"
+            (click)="pickItem(modalItem)"
+            title="Lançar">Lançar</a>
+        </div>
+      </div>
       <table class="table table-striped">
         <thead class="table-dark">
           <tr>
@@ -21,12 +29,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of lista; let i = index">
-            <th scope="row">{{ item.id }}</th>
-            <td> {{ item.id }} </td>
+          <tr *ngFor="let item of pedido.itens; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td> {{ item.sabores.join(', ') }} </td>
             <td>
-              <!-- <button type="button" class="btn btn-outline-warning me-4" (click)="editar(modal1, item, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil-fill"></i></button>
-            <button type="button" class="btn btn-outline-danger" (click)="editar(modal1, item, i)" data-toggle="tooltip" title="Editar"><i class="bi bi-trash-fill"></i></button> -->
+              <a class="btn btn-outline-danger " data-toggle="tooltip"
+              (click)="deleteItem(i)"
+              title="Excluir"><i class="bi bi-trash-fill"></i></a>
             </td>
           </tr>
         </tbody>
@@ -38,3 +47,16 @@
 
   </form>
 </div>
+
+<ng-template #modalItem let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{ msg }}</h4>
+    <button type="button" class="btn-close" aria-label="Close"
+      (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+
+    <app-itensdetails (retorno)="addOuEditar($event)"></app-itensdetails>
+
+  </div>
+</ng-template>

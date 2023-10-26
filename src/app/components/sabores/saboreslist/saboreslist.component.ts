@@ -60,8 +60,6 @@ export class SaboreslistComponent {
       }
     });
 
-
-
   }
 
   exemploErro() {

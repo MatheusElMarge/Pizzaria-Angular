@@ -6,7 +6,7 @@ export class Pedido {
     cliente!: Usuario;
     funcionario!: Usuario;
     obs!: string;
-    itens!: Item[];
+    itens: Item[] = [];
     delivery!: boolean;
     estado!: string;
 }
