@@ -1,0 +1,46 @@
+<div class="background-container">
+  <div class="form-container" style="width: 25%">
+    <form (ngSubmit)="cadastrar()">
+      <div class="row text-center mb-2">
+        <h3 class="fs-4 fw-semibold text-danger">PIZZA BOA UHU!</h3>
+      </div>
+
+      <div class="row">
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="exampleInputText1" class="form-label">Nome</label>
+            <input type="text" class="form-control" name="exampleInputText1"
+              [(ngModel)]="usuario.nome">
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="exampleInputText1" class="form-label">Email</label>
+            <input type="text" class="form-control" name="exampleInputText1"
+              [(ngModel)]="usuario.email">
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Senha</label>
+            <input type="password" class="form-control"
+              name="exampleInputPassword1" [(ngModel)]="usuario.senha">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-danger fw-semibold w-100">CADASTRAR</button>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+</div>

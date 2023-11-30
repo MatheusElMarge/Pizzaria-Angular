@@ -3,7 +3,9 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Item } from 'src/app/models/item';
 import { Pedido } from 'src/app/models/pedido';
 import { Sabor } from 'src/app/models/sabor';
+import { Usuario } from 'src/app/models/usuario';
 import { PedidosService } from 'src/app/services/pedidos.service';
+import { usuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-pedidosdetails',
@@ -22,10 +24,13 @@ export class PedidosdetailsComponent {
   modalRef!: NgbModalRef;
 
   pedidosService = inject(PedidosService);
-
+  usuariosService = inject(usuarioService);
+  listaUsers: Usuario[] = [];
 
   constructor() {
-    // console.log(this.pedido.itens);
+    // console.log(this.pedido.item);
+    this.listUsers();
+
   }
 
   salvar() {
@@ -42,18 +47,33 @@ export class PedidosdetailsComponent {
 
   }
 
+  listUsers() {
+
+    this.usuariosService.listAll().subscribe({
+      next: lista => { // QUANDO DÁ CERTO
+        this.listaUsers = lista;
+        console.log(this.listaUsers)
+      },
+      error: erro => { // QUANDO DÁ ERRO
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+
+  }
+
   pickItem(modal: any) {
     this.modalRef = this.modalService.open(modal, { size: 'md' });
   }
 
   deleteItem(index: number) {
-    this.pedido.itens.splice(index, 1);
+    this.pedido.item.splice(index, 1);
   }
 
 
   addOuEditar(item: Item) {
 
-    this.pedido.itens.push(item);
+    this.pedido.item.push(item);
 
     this.modalRef.close();
   }

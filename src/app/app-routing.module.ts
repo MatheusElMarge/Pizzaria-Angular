@@ -9,12 +9,15 @@ import { SaboreslistComponent } from './components/sabores/saboreslist/saboresli
 import { PedidosdetailsComponent } from './components/pedidos/pedidosdetails/pedidosdetails.component';
 import { FuncionarioslistComponent } from './components/funcionarios/funcionarioslist/funcionarioslist.component';
 import { ClienteslistComponent } from './components/clientes/clienteslist/clienteslist.component';
+import { RegisterComponent } from './components/sistema/register/register.component';
+import { rotaguardGuard } from './guards/rotaguard.guard';
 
 const routes: Routes = [
-  { path: "", redirectTo: "login", pathMatch: 'full' },
+  { path: "", redirectTo: "/login", pathMatch: 'full' },
   { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
   {
-    path: "admin", component: IndexComponent, children: [
+    path: "admin", component: IndexComponent, canActivate: [rotaguardGuard], children: [
       { path: "produtos", component: ProdutoslistComponent },
       { path: "pedidos", component: PedidoslistComponent },
       { path: "pedidos-details", component: PedidosdetailsComponent },

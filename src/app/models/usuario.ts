@@ -7,5 +7,6 @@ export class Usuario {
     senha!: string;
     role!: string;
     enderecos: Endereco[]= [] ;
+    token!: string;
 
 }

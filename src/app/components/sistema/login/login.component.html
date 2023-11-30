@@ -1,17 +1,45 @@
 <div class="background-container">
-    <div class="form-container">
-        <form (ngSubmit)="logar()">
-            <div class="mb-3">
-                <label for="exampleInputText1" class="form-label">Login:</label>
-                <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
-                    [(ngModel)]="usuario.email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Senha:</label>
-                <input type="password" class="form-control" name="exampleInputPassword1"
-                    [(ngModel)]="usuario.senha">
-            </div>
-            <button type="submit" class="btn btn-primary">Logar</button>
-        </form>
-    </div>
+  <div class="form-container" style="width: 30vw">
+    <form (ngSubmit)="logar()">
+      <div class="row text-center mb-2">
+        <h3 class="fs-4 fw-semibold text-danger">PIZZA BOA UHU!</h3>
+        <br>
+        <span *ngIf="showError" class="text-danger">Email ou senha inválidos!</span>
+      </div>
+
+      <div class="row">
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="email-username" class="form-label">Email</label>
+            <input type="text" class="form-control" required name="email-username"
+              [(ngModel)]="login.username">
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="password-login" class="form-label">Senha</label>
+            <input type="password" class="form-control" required
+              name="password-login" [(ngModel)]="login.password">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-12 text-center">
+          <a class="btn btn-warning mb-2 text-white fw-semibold w-100" routerLink="/register" style="color: #ffe08b;">CADASTRAR-SE</a>
+        </div>
+
+
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-danger fw-semibold w-100">ENTRAR</button>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
 </div>

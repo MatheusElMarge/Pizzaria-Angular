@@ -8,7 +8,7 @@ import { Sabor } from '../models/sabor';
 })
 export class SaboresService {
 
-  API: string = 'http://localhost:8080/api/sabor';
+  API: string = 'http://localhost:8080/api/sabores';
   http = inject(HttpClient);
 
   constructor() { }
@@ -21,7 +21,7 @@ export class SaboresService {
   save(sabor: Sabor): Observable<Sabor> {
     if (sabor.id !== undefined){
       console.log(sabor.id + '  edit');
-      return this.http.put<Sabor>(this.API, sabor);
+      return this.http.put<Sabor>(this.API + '/editar/' + sabor.id, sabor);
     }
     console.log('save');
 
@@ -29,7 +29,7 @@ export class SaboresService {
   }
 
   delete(sabor: Sabor): Observable<String> {
-    return this.http.delete(this.API + "/" + sabor.id, { responseType: 'text' });
+    return this.http.delete(this.API + "/deletar/" + sabor.id, { responseType: 'text' });
   }
 
   exemploErro(): Observable<Sabor[]> {

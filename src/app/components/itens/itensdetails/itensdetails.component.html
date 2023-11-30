@@ -1,25 +1,44 @@
-
 <div class="container mt-1">
   <form class="row g-3">
+
     <div class="col-md-12">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="item.nome">
+    </div>
+
+    <div class="col-md-12">
+      <label for="valor" class="form-label">Valor</label>
+      <input type="text" class="form-control" name="valor" id="valor" [(ngModel)]="item.valor">
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="possuiSabores" name="possuiSabores" [(ngModel)]="item.possuiSabores">
+        <label class="form-check-label" for="possuiSabores">
+          Possui Sabores
+        </label>
+      </div>
+    </div>
+
+    <div *ngIf="item.possuiSabores" class="col-md-12">
       <label for="size" class="form-label">Tamanho</label>
-      <select name="size" class="form-select mb-2" id="size" name="size" [(ngModel)]="item.size">
+      <select name="size" class="form-select mb-2" id="size" name="size" [(ngModel)]="item.tamanho">
         <option value="P">Pequena</option>
         <option value="M" selected>Média</option>
         <option value="G">Grande</option>
-        <option value="GG">Gigante</option>
-      </select>
-    </div>
-    <div class="col-md-12">
-      <label for="sabores" class="form-label">Sabores</label>
-      <select name="sabores" class="form-select mb-2" multiple aria-label="multiple select example" id="sabores" name="sabores" [(ngModel)]="item.sabores">
-        <option selected disabled>Selecione os sabores</option>
-        <option *ngFor="let sabor of sabores; let i = index" value="{{ sabor.nome }}">{{ sabor.nome }}</option>
       </select>
     </div>
 
-    <div class="col-2">
-      <button type="submit" class="btn btn-primary btn" (click)="salvar()">Salvar</button>
+    <div *ngIf="item.possuiSabores" class="col-md-12">
+      <label for="sabores" class="form-label">Sabores</label>
+      <select name="sabores" class="form-select mb-2" multiple aria-label="multiple select example" id="sabores" name="sabores" [(ngModel)]="item.sabores">
+        <option selected disabled>Selecione os sabores</option>
+        <option *ngFor="let sabor of sabores; let i = index" [ngValue]="sabor">{{ sabor.nome }}</option>
+      </select>
+    </div>
+
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-outline-success btn " (click)="salvar()">SALVAR</button>
     </div>
   </form>
 </div>

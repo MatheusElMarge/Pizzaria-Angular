@@ -5,8 +5,10 @@ export class Item {
 
   id!: number;
   nome!: string;
-  size!: string;
+  tamanho!: string;
   pedido!: Pedido;
+  possuiSabores!: Boolean;
   sabores: Sabor[] = [];
+  valor!: Number;
 
 }

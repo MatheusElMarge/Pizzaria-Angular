@@ -9,7 +9,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { IndexComponent } from './components/layout/index/index.component';
 import { LoginComponent } from './components/sistema/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PedidoslistComponent } from './components/pedidos/pedidoslist/pedidoslist.component';
 import { PedidosdetailsComponent } from './components/pedidos/pedidosdetails/pedidosdetails.component';
 import { ProdutoslistComponent } from './components/produtos/produtoslist/produtoslist.component';
@@ -23,6 +23,8 @@ import { FuncionariosdetailsComponent } from './components/funcionarios/funciona
 import { ClientesdetailsComponent } from './components/clientes/clientesdetails/clientesdetails.component';
 import { ClienteslistComponent } from './components/clientes/clienteslist/clienteslist.component';
 import { EnderecosdetailsComponent } from './components/enderecos/enderecosdetails/enderecosdetails.component';
+import { RegisterComponent } from './components/sistema/register/register.component';
+import { HttpInterceptorAuthorizationInterceptor } from './interceptors/http-interceptor-authorization.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { EnderecosdetailsComponent } from './components/enderecos/enderecosdetai
     FuncionariosdetailsComponent,
     ClientesdetailsComponent,
     ClienteslistComponent,
-    EnderecosdetailsComponent
+    EnderecosdetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { EnderecosdetailsComponent } from './components/enderecos/enderecosdetai
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorAuthorizationInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
